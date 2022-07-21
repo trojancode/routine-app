@@ -1,11 +1,11 @@
 const { User } = require("../Models");
 
 /**
- * User create controller
+ * Creates new App 
  * @param {import("express").Request} req 
  * @param {import("express").Response} res 
  */
-const createUser = async (req, res) => {
+const createApp = async (req, res) => {
     try {
         const { name, email } = req.body;
         if (!name || !email) throw "Required Fields are missing"
@@ -26,5 +26,5 @@ const createUser = async (req, res) => {
 }
 
 module.exports = {
-    createUser
+    createApp
 }

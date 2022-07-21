@@ -1,13 +1,15 @@
 const { default: mongoose, model } = require("mongoose");
 
-const user = mongoose.Schema({
+const app = mongoose.Schema({
     name:{
         type:String,
     },
-    email:{
+    appid:{
         type:String,
         unique:true
     }
 })
-
-module.exports = User = mongoose.model("User",user)
+module.exports = {
+    AppSchema:app,
+    App: mongoose.model("App",app)
+}
