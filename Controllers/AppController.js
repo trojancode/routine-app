@@ -1,4 +1,4 @@
-const { User } = require("../Models");
+const { User, App } = require("../Models");
 
 /**
  * Creates new App 
@@ -7,20 +7,21 @@ const { User } = require("../Models");
  */
 const createApp = async (req, res) => {
     try {
-        const { name, email } = req.body;
-        if (!name || !email) throw "Required Fields are missing"
+        const { name, appid } = req.body;
+        if (!name || !appid) throw "Required Fields are missing"
 
-        const newUser = new User({
+        const newApp = new App({
             name,
-            email
+            appid
         })
-        await newUser.save()
+        await newApp.save()
 
         return res.json({
             success: true,
-            data:newUser
+            data:newApp
         })
     } catch (error) {
+        console.dir(error)
         return res.status(400).json({ error })
     }
 }

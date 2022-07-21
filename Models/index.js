@@ -6,7 +6,7 @@ const User = require("./User");
 
 module.exports = {
     User,
-    App,
+    App:App.App,
     Routine,
     Mode
 }
